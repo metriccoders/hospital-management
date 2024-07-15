@@ -1,36 +1,102 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Hospital Management System
+
+Welcome to the Hospital Management System (HMS) by Metric Coders! This application is designed to streamline hospital operations by providing efficient management of patients, doctors, appointments, and medical records. The system is built using Next.js for the front-end, Prisma as the ORM, Postgres for the database, Clerk for authentication, and Shadcn for the UI.
+
+## Table of Contents
+
+- [Features](#features)
+- [Technologies Used](#technologies-used)
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+  - [Running the Application](#running-the-application)
+- [Configuration](#configuration)
+- [Contributing](#contributing)
+- [License](#license)
+
+## Features
+
+- **User Authentication**: Secure user authentication and management using Clerk.
+- **Patient Management**: Manage patient records, including personal details, medical history, and current treatments.
+- **Doctor Management**: Manage doctor profiles, specialties, and availability.
+- **Appointment Scheduling**: Schedule, view, and manage appointments between patients and doctors.
+- **Medical Records**: Maintain comprehensive medical records accessible to authorized personnel.
+- **Responsive UI**: A user-friendly and responsive interface designed with Shadcn.
+
+## Technologies Used
+
+- **Next.js**: React framework for server-side rendering and generating static websites.
+- **Prisma**: Modern ORM (Object-Relational Mapping) for Node.js and TypeScript.
+- **Postgres**: Reliable and robust open-source relational database.
+- **Clerk**: Authentication and user management service.
+- **Shadcn**: UI components library.
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+Ensure you have the following installed on your machine:
+
+- [Node.js](https://nodejs.org/en/download/)
+- [Postgres](https://www.postgresql.org/download/)
+- [Yarn](https://classic.yarnpkg.com/en/docs/install) (optional, you can use npm as well)
+
+### Installation
+
+1. **Clone the repository**:
+    ```bash
+    git clone https://github.com/your-username/hospital-management-system.git
+    cd hospital-management-system
+    ```
+
+2. **Install dependencies**:
+    ```bash
+    yarn install
+    ```
+
+3. **Set up environment variables**:
+
+   Create a `.env` file in the root directory and add the following variables:
+    ```env
+    DATABASE_URL="postgresql://username:password@localhost:5432/hospital-management-system"
+    NEXT_PUBLIC_CLERK_FRONTEND_API=<your-clerk-frontend-api>
+    CLERK_API_KEY=<your-clerk-api-key>
+    ```
+
+4. **Set up the database**:
+    ```bash
+    npx prisma migrate dev --name init
+    ```
+
+### Running the Application
+
+1. **Start the development server**:
+    ```bash
+    yarn dev
+    ```
+
+2. **Open your browser** and navigate to `http://localhost:3000`.
+
+## Configuration
+
+The application uses environment variables for configuration. Ensure you have a `.env` file in the root of your project with the following content:
+
+```env
+DATABASE_URL="postgresql://username:password@localhost:5432/hospital-management-system"
+NEXT_PUBLIC_CLERK_FRONTEND_API=<your-clerk-frontend-api>
+CLERK_API_KEY=<your-clerk-api-key>
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Replace `<your-clerk-frontend-api>` and `<your-clerk-api-key>` with your actual Clerk API keys.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## Contributing
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+We welcome contributions! Please read our [Contributing Guidelines](CONTRIBUTING.md) before submitting a pull request.
 
-## Learn More
+## License
 
-To learn more about Next.js, take a look at the following resources:
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Feel free to reach out if you have any questions or need further assistance. Happy coding!
