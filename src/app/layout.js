@@ -1,7 +1,20 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { ClerkProvider, SignInButton, SignedIn, SignedOut, UserButton } from '@clerk/nextjs'
-const inter = Inter({ subsets: ["latin"] });
+import {
+  ClerkProvider,
+  SignInButton,
+  SignedIn,
+  SignedOut,
+  UserButton,
+} from "@clerk/nextjs";
+import { Inter as FontSans } from "next/font/google";
+
+import { cn } from "@/lib/utils";
+
+const fontSans = FontSans({
+  subsets: ["latin"],
+  variable: "--font-sans",
+});
 
 export const metadata = {
   title: "Hospital Management System",
@@ -11,9 +24,14 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <ClerkProvider>
-    <html lang="en">
-      <body className={inter.className}>
-      <header>
+      <html lang="en">
+        <body
+          className={cn(
+            "min-h-screen bg-background font-sans antialiased",
+            fontSans.variable
+          )}
+        >
+          <header>
             <SignedOut>
               <SignInButton />
             </SignedOut>
@@ -21,10 +39,9 @@ export default function RootLayout({ children }) {
               <UserButton />
             </SignedIn>
           </header>
-          <main>
-            {children}
-          </main></body>
-    </html>
+          <main>{children}</main>
+        </body>
+      </html>
     </ClerkProvider>
   );
 }
